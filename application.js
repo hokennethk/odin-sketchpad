@@ -4,9 +4,15 @@ var gridSize = 16;
 // Functions
 // New Grid button
 function newGrid() {
-    var gridSize = prompt('Enter number of rows:');
-    $("tbody").find("tr").remove();
-    createGrid(gridSize);
+    var gridSize = prompt('Enter number of rows (1-128):');
+    // check Input
+
+    if (gridSize > 1 && gridSize < 129) {
+	    $("tbody").find("tr").remove();
+	    createGrid(gridSize);
+	} else {
+		alert('Please enter a valid input');
+	}
 }
 
 function createGrid(gridSize) {
